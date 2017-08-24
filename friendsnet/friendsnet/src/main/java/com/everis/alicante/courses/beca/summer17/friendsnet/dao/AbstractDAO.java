@@ -12,25 +12,13 @@ import javax.persistence.criteria.Root;
 
 import com.everis.alicante.courses.beca.summer17.friendsnet.entity.FNEntity;
 
-import java.io.Serializable;
-import java.lang.reflect.ParameterizedType;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
-
-import com.everis.alicante.courses.beca.summer17.friendsnet.entity.FNEntity;
-
 public abstract class AbstractDAO<E extends FNEntity, ID extends Serializable> implements EntityDAO<E, ID> {
 	
 	private final Class<E> persistentClass;
 	
 	@SuppressWarnings("unchecked")
 	public AbstractDAO() {
-		this.persistentClass = (Class<E>)((ParameterizedType)this.getClass().getGenericSuperclass()).getActualTypeArguments()[1];
+		this.persistentClass = (Class<E>)((ParameterizedType)this.getClass().getGenericSuperclass()).getActualTypeArguments()[0];
 	}
 	
 	@PersistenceContext
