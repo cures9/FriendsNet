@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
  * The type Custom web mvc configurer adapter.
@@ -11,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
 @EnableWebMvc
 @Configuration
-public class WebMvConfigurerAdapterCustom extends WebConfigurerAdapter {
+public class WebMvConfigurerAdapterCustom extends WebMvcConfigurerAdapter {
 	
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addRedirectViewController("/swagger/v2/api-docs", "/v2/api-docs") .setKeepQueryParams(true);
@@ -23,7 +24,7 @@ public class WebMvConfigurerAdapterCustom extends WebConfigurerAdapter {
 	}
 	
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/swagger/**")registry .addResourceLocations("classpath:/META-INF/resources/");
+		registry.addResourceHandler("/swagger/**") .addResourceLocations("classpath:/META-INF/resources/");
 	}
 
 }
