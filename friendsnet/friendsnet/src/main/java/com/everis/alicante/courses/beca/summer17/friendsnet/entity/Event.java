@@ -10,7 +10,10 @@ public class Event implements FNEntity{
 	
 	private Date startingDate;
 	
+	private Date endingDate;
 	
+	private EventType type;
 	
+	private byte[] picture;
 	
 }

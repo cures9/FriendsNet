@@ -6,6 +6,6 @@ public class Group implements FNEntity{
 	
 	private String name;
 	
-	private Byte[] picture;
+	private byte[] picture;
 	
 }
