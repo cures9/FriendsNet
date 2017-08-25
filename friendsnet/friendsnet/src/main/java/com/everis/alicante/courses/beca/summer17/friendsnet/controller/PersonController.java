@@ -2,6 +2,7 @@ package com.everis.alicante.courses.beca.summer17.friendsnet.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,12 +18,13 @@ import com.everis.alicante.courses.beca.summer17.friendsnet.manager.PersonManage
 @RequestMapping("/person")
 public class PersonController {
 	
-	PersonManager manager;
+	@Autowired
+	private PersonManager manager;
 	
 	@GetMapping
 	public List<Person> getAll(){
-		manager.findAll();
-		return null;
+		
+		return (List<Person>) manager.findAll();
 	}
 	
 	@GetMapping("{id}")
@@ -31,7 +33,7 @@ public class PersonController {
 	}
 	
 	@PostMapping
-	public Person create(@RequestParam Person person) {
+	public Person create(@RequestBody Person person) {
 		return manager.save(person);
 	}
 	
@@ -42,7 +44,7 @@ public class PersonController {
 	
 	@DeleteMapping
 	public void remove(@RequestParam Long id) {
-		manager.remove(null);
+		manager.remove(manager.findById(id));
 	}
 	
 

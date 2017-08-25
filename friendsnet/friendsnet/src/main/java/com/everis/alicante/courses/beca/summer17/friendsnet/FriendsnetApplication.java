@@ -8,5 +8,6 @@ public class FriendsnetApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(FriendsnetApplication.class, args);
+		
 	}
 }
