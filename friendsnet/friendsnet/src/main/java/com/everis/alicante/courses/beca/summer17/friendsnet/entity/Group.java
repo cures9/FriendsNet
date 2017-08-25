@@ -1,7 +1,14 @@
 package com.everis.alicante.courses.beca.summer17.friendsnet.entity;
 
-public class Group implements FNEntity{
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
+public class Group implements FNEntity{
+	
+	@Id
+	@GeneratedValue
 	private Long id;
 	
 	private String name;
