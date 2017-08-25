@@ -31,8 +31,8 @@ public class EventManagerImpl implements Manager{
 	}
 
 	@Override
-	public Iterable save(Iterable es) {
-		dao.save(es);
+	public Iterable<Event> save(Iterable<Event> es) {
+		return dao.save(es);
 	}
 
 	@Override
@@ -48,6 +48,12 @@ public class EventManagerImpl implements Manager{
 	@Override
 	public void remove(FNEntity e) {
 		
+	}
+
+	@Override
+	public Iterable save(Iterable es) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
