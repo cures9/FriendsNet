@@ -37,7 +37,7 @@ public class PostController {
     }
 
     @DeleteMapping
-    public void remove(@PathVariable Long id){
+    public void remove(@RequestParam Long id){
         manager.remove(manager.findById(id));
     }
 

@@ -16,41 +16,41 @@ public class PostManagerImpl implements PostManager {
     //FALTA RELLENAR
     @Override
     public Post addLike(Like like) {
-        return null;
+        return dao.addLike(like);
     }
 
     @Override
     public Iterable<Post> findAll() {
-        return null;
+        return dao.findAll();
     }
 
     @Override
-    public Post findById(Long aLong) {
-        return null;
+    public Post findById(Long id) {
+        return dao.findById(id);
     }
 
     @Override
     public Post save(Post post) {
-        return null;
+        return dao.save(post);
     }
 
     @Override
     public Iterable<Post> save(Iterable<Post> posts) {
-        return null;
+        return dao.save(posts);
     }
 
     @Override
     public Post update(Post post) {
-        return null;
+        return dao.update(post);
     }
 
     @Override
     public Iterable<Post> update(Iterable<Post> posts) {
-        return null;
+        return dao.update(posts);
     }
 
     @Override
-    public void remove(Post post) {
-
+    public void remove(Post e) {
+    	dao.remove(e);
     }
 }
