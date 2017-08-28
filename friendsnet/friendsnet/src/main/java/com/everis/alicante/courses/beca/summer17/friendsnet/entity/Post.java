@@ -1,58 +1,36 @@
 package com.everis.alicante.courses.beca.summer17.friendsnet.entity;
 
 import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.*;
+import java.util.Set;
 
-public class Post implements FNEntity{
+@Entity
+public class Post implements FNEntity {
 
-	private Long id;
-	
-	private String text;
-	
-	private Date creationDate;
-	
-	private PostType Date;
-	
-	private byte[] picture;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-	public Long getId() {
-		return id;
-	}
+    private String text;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    private Date creationDate;
 
-	public String getText() {
-		return text;
-	}
+    private PostType type;
 
-	public void setText(String text) {
-		this.text = text;
-	}
+    private byte[] picture;
 
-	public Date getCreationDate() {
-		return creationDate;
-	}
+    @ManyToOne
+    @JoinColumn(name = "event_id")
+    @JsonIgnore
+    private Event postInEvent;
 
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
-	}
+    @OneToMany(mappedBy = "likesByPost")
+    private Set<Like> likes;
 
-	public PostType getDate() {
-		return Date;
-	}
+    @ManyToOne
+    @JoinColumn(name = "person_id")
+    @JsonIgnore
+    private Person postByPerson;
 
-	public void setDate(PostType date) {
-		Date = date;
-	}
-
-	public byte[] getPicture() {
-		return picture;
-	}
-
-	public void setPicture(byte[] picture) {
-		this.picture = picture;
-	}
-
-	
 }
