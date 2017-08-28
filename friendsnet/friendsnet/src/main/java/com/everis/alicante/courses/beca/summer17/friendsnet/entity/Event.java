@@ -5,8 +5,9 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import com.everis.alicante.courses.beca.summer17.friendsnet.entity.EventType;
 
-@Entity
+@Entity(name="EventTable")
 public class Event implements FNEntity{
 	
 	@Id

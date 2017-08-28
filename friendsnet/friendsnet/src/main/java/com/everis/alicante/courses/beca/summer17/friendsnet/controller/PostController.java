@@ -4,7 +4,6 @@ import com.everis.alicante.courses.beca.summer17.friendsnet.entity.Post;
 import com.everis.alicante.courses.beca.summer17.friendsnet.manager.PostManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -29,7 +28,6 @@ public class PostController {
 
     @GetMapping("/person/{id}")
     public Post getByPersonId(@PathVariable Long id){
-        //no se si este metodo funciona
         return (Post) manager.findById(id);
     }
 

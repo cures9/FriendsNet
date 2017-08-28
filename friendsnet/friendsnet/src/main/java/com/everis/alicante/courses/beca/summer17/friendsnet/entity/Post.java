@@ -1,9 +1,10 @@
 package com.everis.alicante.courses.beca.summer17.friendsnet.entity;
 
 import java.util.Date;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import javax.persistence.*;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import com.everis.alicante.courses.beca.summer17.friendsnet.entity.PostType;
 
 @Entity
 public class Post implements FNEntity {
@@ -20,17 +21,44 @@ public class Post implements FNEntity {
 
     private byte[] picture;
 
-    @ManyToOne
-    @JoinColumn(name = "event_id")
-    @JsonIgnore
-    private Event postInEvent;
+	public Long getId() {
+		return id;
+	}
 
-    @OneToMany(mappedBy = "likesByPost")
-    private Set<Like> likes;
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    @ManyToOne
-    @JoinColumn(name = "person_id")
-    @JsonIgnore
-    private Person postByPerson;
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public PostType getType() {
+		return type;
+	}
+
+	public void setType(PostType type) {
+		this.type = type;
+	}
+
+	public byte[] getPicture() {
+		return picture;
+	}
+
+	public void setPicture(byte[] picture) {
+		this.picture = picture;
+	}
 
 }

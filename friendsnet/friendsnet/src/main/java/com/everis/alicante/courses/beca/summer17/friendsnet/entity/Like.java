@@ -2,8 +2,16 @@ package com.everis.alicante.courses.beca.summer17.friendsnet.entity;
 
 import java.util.Date;
 
-public class Like implements FNEntity{
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import com.everis.alicante.courses.beca.summer17.friendsnet.entity.LikeType;
 
+@Entity(name="LikeTable")
+public class Like implements FNEntity{
+	
+	@Id
+	@GeneratedValue
 	private Long id;
 	
 	private Date creationDate;
