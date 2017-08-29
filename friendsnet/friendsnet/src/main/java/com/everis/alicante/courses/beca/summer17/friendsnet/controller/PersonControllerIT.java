@@ -3,6 +3,9 @@ package com.everis.alicante.courses.beca.summer17.friendsnet.controller;
 import com.everis.alicante.courses.beca.summer17.friendsnet.dao.PersonDAO;
 import com.everis.alicante.courses.beca.summer17.friendsnet.entity.Person;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.util.List;
+
 import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
@@ -81,10 +84,36 @@ public class PersonControllerIT {
         JSONAssert.assertEquals("[{'id': 1, 'name':'Mike', 'surname': 'Wasotsky'}, {'id': 2, 'name':'Prueba', 'surname':'Test'}]", response.getBody(), false);
     }
     
+//    @Test
+//    public void testGetAll() throws JSONException{
+//    	//Arrange
+//    	HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+//
+//    	//Act
+//    	
+//    	//Assert
+//    }
+    
     @Test
-    public void testGetAll() throws JSONException{
-    	
+    public void testGetById() throws JSONException{
+    	//Arrange
+    	HttpEntity<String> entity = new HttpEntity<String>(null, headers);
+    	Person persona = new Person();
+    	Person personb = new Person();
+    	persona.setName("Vladimir");
+    	persona.setSurname("Vladislav");
+    	personb.setName("Yas");
+    	personb.setSurname("Yei");
+    	dao.save(persona);
+    	//Act
+        ResponseEntity<String> response = restTemplate.exchange(
+                createURLWithPort("/person/1"),
+                HttpMethod.GET, null, String.class);
+    	//Assert
+        JSONAssert.assertEquals("[{'id': 1, 'name':'Vladimir', 'surname': 'Vladislav'}, {'id': 2, 'name':'Yas', 'surname':'Yei'}]", response.getBody(), false);
     }
+    
+    
 
     private String createURLWithPort(String uri) {
         return "http://localhost:" + port + uri;
