@@ -4,8 +4,6 @@ import com.everis.alicante.courses.beca.summer17.friendsnet.dao.PersonDAO;
 import com.everis.alicante.courses.beca.summer17.friendsnet.entity.Person;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.util.List;
-
 import org.json.JSONException;
 import org.junit.Before;
 import org.junit.Test;
@@ -43,7 +41,7 @@ public class PersonControllerIT {
         this.mapper = new ObjectMapper();
         Iterable<Person> all = dao.findAll();
         for(Person person: all) {
-            dao.remove(person);
+            dao.delete(person);
         }
     }
 

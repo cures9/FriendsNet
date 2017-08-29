@@ -16,7 +16,7 @@ public class PostManagerImpl implements PostManager {
     //FALTA RELLENAR
     @Override
     public Post addLike(Like like) {
-        return dao.addLike(like);
+        return null;
     }
 
     @Override
@@ -26,7 +26,7 @@ public class PostManagerImpl implements PostManager {
 
     @Override
     public Post findById(Long id) {
-        return dao.findById(id);
+        return dao.findOne(id);
     }
 
     @Override
@@ -41,16 +41,16 @@ public class PostManagerImpl implements PostManager {
 
     @Override
     public Post update(Post post) {
-        return dao.update(post);
+        return dao.save(post);
     }
 
     @Override
     public Iterable<Post> update(Iterable<Post> posts) {
-        return dao.update(posts);
+        return dao.save(posts);
     }
 
     @Override
     public void remove(Post e) {
-    	dao.remove(e);
+    	dao.delete(e);
     }
 }

@@ -1,10 +1,12 @@
 package com.everis.alicante.courses.beca.summer17.friendsnet.dao;
 
-import com.everis.alicante.courses.beca.summer17.friendsnet.entity.Group;
-import com.everis.alicante.courses.beca.summer17.friendsnet.entity.Person;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Service;
 
-public interface GroupDAO extends EntityDAO<Group, Long> {
+import com.everis.alicante.courses.beca.summer17.friendsnet.entity.Group;
+
+@Service
+public interface GroupDAO extends CrudRepository<Group, Long> {
 
 	
-	public Group addPersons(Group group, Iterable<Person> persons);
 }

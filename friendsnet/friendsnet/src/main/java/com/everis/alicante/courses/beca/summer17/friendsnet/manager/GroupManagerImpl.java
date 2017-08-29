@@ -21,7 +21,7 @@ public class GroupManagerImpl implements GroupManager {
 
 	@Override
 	public Group findById(Long id) {
-		return dao.findById(id);
+		return dao.findOne(id);
 	}
 
 	@Override
@@ -36,22 +36,22 @@ public class GroupManagerImpl implements GroupManager {
 
 	@Override
 	public Group update(Group e) {
-		return dao.update(e);
+		return dao.save(e);
 	}
 
 	@Override
 	public Iterable<Group> update(Iterable<Group> es) {
-		return dao.update(es);
+		return dao.save(es);
 	}
 
 	@Override
 	public void remove(Group e) {
-		dao.remove(e);
+		dao.delete(e);
 	}
 
 	@Override
 	public Group addPersons(Group group, Iterable<Person> persons) {
-		return dao.addPersons(group, persons);
+		return null;
 	}	
 	
 
